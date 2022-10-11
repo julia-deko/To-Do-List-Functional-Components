@@ -5,15 +5,15 @@ import {AddBar} from '../Components/AddBar/AddBar.js';
 export function AddBarContainer(props) {
 
     const [taskInput, setTaskInput] = useState('');
+    const [nextId, setNextId] = useState(0);
 
     const handleChange = ({target}) => {
         setTaskInput(target.value);
     };
 
-    let nextId = 0;
     const generateId = () => {
         const result = nextId;
-        nextId +=1;
+        setNextId(prev => prev + 1);
         return result;
     }
 

@@ -5,16 +5,7 @@ import {TaskListContainer} from './Containers/TaskListContainer';
 
 function App() {
 
-  const [tasks, setTasks] = useState([
-    {
-      id: 0,
-      text: 'first task'
-    },
-    {
-      id: 1,
-      text: 'second task'
-    }
-  ]);
+  const [tasks, setTasks] = useState([]);
 
   const addTask = (task) => {
     setTasks((prev) => {
@@ -22,11 +13,19 @@ function App() {
     });
   }
 
+  console.log(tasks);
+
+  const removeTask = (task) => {
+    setTasks((prev) => {
+      return prev.filter((prevTask) => prevTask.id !== task.id);
+    })
+  }
+
   return (
     <div className="App">
       <h1>To Do List</h1>
       <AddBarContainer addTask={addTask} />
-      <TaskListContainer tasks={tasks} />
+      <TaskListContainer removeTask={removeTask} tasks={tasks} />
     </div>
   );
 }

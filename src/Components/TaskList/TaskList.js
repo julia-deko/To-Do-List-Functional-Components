@@ -6,7 +6,7 @@ export function TaskList(props) {
         <div>
             {
                 props.tasks.map(task => {
-                    return <TaskContainer task={task} />;
+                    return <TaskContainer key={task.id} task={task} removeTask={props.removeTask} />;
                 })
             }
         </div>
