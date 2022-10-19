@@ -3,7 +3,7 @@ import {TaskContainer} from '../../Containers/TaskContainer';
 
 export function TaskList(props) {
     return (
-        <div>
+        <div className="tasklist">
             {
                 props.tasks.map(task => {
                     return <TaskContainer key={task.id} task={task} removeTask={props.removeTask} />;
